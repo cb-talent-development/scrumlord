@@ -48,10 +48,10 @@ ActiveRecord::Schema.define(version: 20160929182943) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.integer  "groups_id"
+    t.integer  "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["groups_id"], name: "index_team_members_on_groups_id", using: :btree
+    t.index ["group_id"], name: "index_team_members_on_group_id", using: :btree
   end
 
   create_table "teams", force: :cascade do |t|
@@ -75,5 +75,5 @@ ActiveRecord::Schema.define(version: 20160929182943) do
   add_foreign_key "standup_team_members", "standups"
   add_foreign_key "standup_team_members", "team_members"
   add_foreign_key "standups", "teams"
-  add_foreign_key "team_members", "groups", column: "groups_id"
+  add_foreign_key "team_members", "groups"
 end
