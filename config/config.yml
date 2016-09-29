@@ -1,0 +1,15 @@
+defaults: &defaults
+  mailer:
+    from_email: <%=ENV['MAILER_FROM_EMAIL']%>
+
+test:
+  <<: *defaults
+
+development:
+  <<: *defaults
+
+staging:
+  <<: *defaults
+
+production:
+  <<: *defaults

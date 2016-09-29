@@ -1,8 +1,8 @@
 class StandupMailer < ApplicationMailer
-  default from: 'setme@setme.com'
+  default from: config.mailer.from_email
 
   def daily(standup)
     @standup = standup
-    mail(to: @standup.team.standup_email, subject: 'Daily Scrupdate')
+    mail(to: @standup.team.recipient_email, subject: 'Daily Scrupdate')
   end
 end
