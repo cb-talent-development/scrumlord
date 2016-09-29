@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root_to: 'admin#index'
+
   resources :standups, except: [:new, :edit] do
     resources :standup_team_members, path: 'team_members', except: [:new, :edit]
   end
