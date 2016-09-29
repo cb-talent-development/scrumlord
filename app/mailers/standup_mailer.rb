@@ -1,5 +1,5 @@
 class StandupMailer < ApplicationMailer
-  default from: config.mailer.from_email
+  default from: config.smtp.sender_address
 
   def daily(standup)
     @standup = standup
