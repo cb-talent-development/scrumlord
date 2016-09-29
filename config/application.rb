@@ -13,13 +13,14 @@ module Scrumlord
     # -- all .rb files in that directory are automatically loaded.
 
     config.action_mailer.smtp_settings = {
-      address: config.smtp.sender_address,
-      domain: config.smtp.sender_domain,
-      port: config.smtp.port,
-      user_name: config.smtp.user_name,
-      password: config.smtp.password,
-      starttls: config.smtp.starttls
+      :authentication => ENV['SMTP_AUTHENTICATION'],
+      :address => ENV['SMTP_ADDRESS'],
+      :port => ENV['SMTP_PORT'],
+      :domain => ENV['SMTP_SENDER_DOMAIN'],
+      :user_name => ENV['SMTP_USERNAME'],
+      :password => ENV['SMTP_PASSWORD'],
+      :enable_starttls_auto => ENV['SMTP_STARTTLS']
     }
-
+    ActionMailer::Base.default from: ENV['SMTP_SENDER_ADDRESS']
   end
 end

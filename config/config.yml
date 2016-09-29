@@ -1,11 +1,4 @@
 defaults: &defaults
-  smtp:
-    sender_address: <%=ENV['SMTP_SENDER_ADDRESS']%>
-    sender_domain: <%=ENV['SMTP_SENDER_DOMAIN']%>
-    port: <%=ENV['SMTP_PORT']%>
-    user_name: <%=ENV['SMTP_USER_NAME']%>
-    password: <%=ENV['SMTP_PASSWORD']%>
-    starttls: <%=ENV['SMTP_STARTTLS']%>
 
 test:
   <<: *defaults
