@@ -1,0 +1,2 @@
+class StandupMailer < ApplicationMailer
+end
