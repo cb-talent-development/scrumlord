@@ -15,3 +15,8 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore all node modules and typings
+/node_modules
+/typings
+npm-debug.log
