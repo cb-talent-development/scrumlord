@@ -12,6 +12,9 @@ module Scrumlord
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.default_url_options = {:host => ENV['HOST']}
+    config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
       :authentication => ENV['SMTP_AUTHENTICATION'],
       :address => ENV['SMTP_ADDRESS'],
@@ -21,6 +24,5 @@ module Scrumlord
       :password => ENV['SMTP_PASSWORD'],
       :enable_starttls_auto => ENV['SMTP_STARTTLS']
     }
-    ActionMailer::Base.default from: ENV['SMTP_SENDER_ADDRESS']
   end
 end
