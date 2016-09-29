@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # root_to: 'admin#index'
+  root to: 'admin#index'
 
   devise_for :teams
 
