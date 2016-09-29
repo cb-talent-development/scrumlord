@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Standup Team Members</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Standup</th>
+      <th>Today</th>
+      <th>Yesterday</th>
+      <th>Team member</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @standup_team_members.each do |standup_team_member| %>
+      <tr>
+        <td><%= standup_team_member.standup %></td>
+        <td><%= standup_team_member.today %></td>
+        <td><%= standup_team_member.yesterday %></td>
+        <td><%= standup_team_member.team_member %></td>
+        <td><%= link_to 'Show', standup_team_member %></td>
+        <td><%= link_to 'Edit', edit_standup_team_member_path(standup_team_member) %></td>
+        <td><%= link_to 'Destroy', standup_team_member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Standup Team Member', new_standup_team_member_path %>

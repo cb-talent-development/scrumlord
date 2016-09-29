@@ -1,0 +1,1 @@
+json.array! @standup_team_members, partial: 'standup_team_members/standup_team_member', as: :standup_team_member

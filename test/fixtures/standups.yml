@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-09-29
+  comments: MyText
+  meetings: MyText
+  team: one
+
+two:
+  date: 2016-09-29
+  comments: MyText
+  meetings: MyText
+  team: two

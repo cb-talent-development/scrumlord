@@ -1,0 +1,1 @@
+json.partial! "standup_team_members/standup_team_member", standup_team_member: @standup_team_member
