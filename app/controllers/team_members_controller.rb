@@ -1,4 +1,4 @@
-class TeamMembersController < ApplicationController
+class TeamMembersController < ApiController
   before_action :set_team_member, only: [:show, :update, :destroy]
 
   # GET /team_members

@@ -1,4 +1,4 @@
-class StandupTeamMembersController < ApplicationController
+class StandupTeamMembersController < ApiController
   before_action :set_standup_team_member, only: [:show, :update, :destroy]
 
   # GET /standup_team_members

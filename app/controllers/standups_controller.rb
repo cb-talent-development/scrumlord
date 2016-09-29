@@ -1,4 +1,4 @@
-class StandupsController < ApplicationController
+class StandupsController < ApiController
   before_action :set_standup, only: [:show, :update, :destroy]
 
   # GET /standups
