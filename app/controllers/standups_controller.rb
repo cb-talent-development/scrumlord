@@ -1,2 +1,2 @@
-class StandupsController < ApplicationController
+class StandupsController < AuthenticatedApplicationController
 end

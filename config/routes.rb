@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'admin#index'
+  root to: 'dashboard#index'
 
   devise_for :teams
 
@@ -13,11 +13,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :standups do
-    resources :standup_team_members, path: 'team_members'
-  end
-
-  resources :groups do
-    resources :team_members
-  end
+  resources :standups
 end
