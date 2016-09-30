@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(version: 20160929182943) do
     t.date     "date"
     t.text     "comments"
     t.text     "meetings"
-    t.boolean  "event_of_the_day"
+    t.boolean  "event_of_the_day", default: true
     t.integer  "team_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.index ["team_id"], name: "index_standups_on_team_id", using: :btree
   end
 
