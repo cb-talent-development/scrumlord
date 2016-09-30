@@ -1,18 +1,22 @@
-%h1
-  Hello, Scrum Master!
+.greeting
+  %h1
+    Welcome, Scrum Master!
 
-= form_for @standup, html: { class: 'mailform' } do |form|
-  .input
-    - @groups.each do |group|
-      .groups
-        .team-members
-          - group.team_members.each do |team_member|
-            .team-member
-              .name
-                = team_member.full_name
-              .notes
-                = fields_for 'standup_team_members' do |standup_team_member_form|
-                  .yesterday
-                    = standup_team_member_form.text_field :yesterday
-                  .today
-                    = standup_team_member_form.text_field :today
+= form_for @standup do |form|
+  .mailform
+    .input
+      - @groups.each do |group|
+        .groups
+          .team-members
+            - group.team_members.each do |team_member|
+              .team-member
+                .name
+                  = team_member.full_name
+                .notes
+                  = fields_for 'standup_team_members' do |standup_team_member_form|
+                    .yesterday
+                      = standup_team_member_form.text_field :yesterday, placeholder: 'Yesterday', class: 'mdl-textfield__input'
+                    .today
+                      = standup_team_member_form.text_field :today, placeholder: 'Today', class: 'mdl-textfield__input'
+  .button-wrap.group
+    = form.submit 'Scrupdate It!', class: 'submit-button mdl-button mdl-js-button mdl-button--raised'

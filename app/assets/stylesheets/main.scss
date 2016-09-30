@@ -1,20 +1,25 @@
 $border: 1px solid #999;
 
 $color-purple: #3f51b5;
+$color-green: #8BC34A;
 
 body {
   font-family: "Roboto","Helvetica","Arial",sans-serif;
   font-size: 20px;
   font-weight: 500;
+  margin: 0;
 }
 
 .greeting {
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/1/1a/ST_vs_Gloucester_-_Match_-_23.JPG);
-  background-size: cover;
+  background-image:
+    url(https://www.transparenttextures.com/patterns/3px-tile.png), url(https://upload.wikimedia.org/wikipedia/commons/1/1a/ST_vs_Gloucester_-_Match_-_23.JPG);
+  background-size: 5%, cover;
+  background-repeat: repeat, no-repeat;
   height: 20vh;
   background-position: center;
   display: flex;
   align-items: flex-end;
+  padding-left: 20px;
 
   h1 {
     color: white;
@@ -61,7 +66,7 @@ body {
 .name {
   border-right: $border;
   border-width: 2px;
-  min-width: 100px;
+  min-width: 175px;
   background-color: $color-purple;
   color: white;
   display: flex;
@@ -82,8 +87,37 @@ body {
 .today {
   height: 100%;
   flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .yesterday {
   border-right: $border;
+}
+
+input.mdl-textfield__input {
+  width: 95%;
+  height: 80%;
+  border-radius: 3px;
+  border: $border;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  margin: 20px;
+  float: right;
+  background-color: $color-purple;
+  color: white;
+}
+
+.button-wrap {
+  background-color: $color-green;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
 }
