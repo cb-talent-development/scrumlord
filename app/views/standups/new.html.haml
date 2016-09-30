@@ -11,7 +11,7 @@
               .name
                 = team_member.full_name
               .notes
-                = fields_for 'standup_team_members' do |standup_team_member_form|
+                = form.fields_for 'standup_team_members' do |standup_team_member_form|
                   .yesterday
                     = standup_team_member_form.text_field :yesterday
                   .today
