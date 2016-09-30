@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :teams
 
-  namespace 'api' do
+  namespace :api do
     resources :standups, except: [:new, :edit] do
       resources :standup_team_members, path: 'team_members', except: [:new, :edit]
     end
@@ -11,5 +11,13 @@ Rails.application.routes.draw do
     resources :groups, except: [:new, :edit] do
       resources :team_members, except: [:new, :edit]
     end
+  end
+
+  resources :standups do
+    resources :standup_team_members, path: 'team_members'
+  end
+
+  resources :groups do
+    resources :team_members
   end
 end
