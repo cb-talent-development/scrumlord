@@ -1,7 +1,57 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+team = Team.create({
+  email: "jeff.bostick@careerbuilder.com",
+  password: "welcome1",
+  recipient_email: "employersitecontentproducts@cb.com"
+})
+
+pos = Group.create({
+  name: "Product Owners",
+  team: team
+})
+
+devs = Group.create({
+  name: "Developers",
+  team: team
+})
+
+TeamMember.create({
+  first_name: "Alex",
+  last_name: "Tharp",
+  email: "@careerbuilder.com",
+  group: devs
+})
+
+TeamMember.create({
+  first_name: "Arelia",
+  last_name: "Jones",
+  email: "@careerbuilder.com",
+  group: devs
+})
+
+TeamMember.create({
+  first_name: "Elliott",
+  last_name: "Young",
+  email: "@careerbuilder.com",
+  group: devs
+})
+
+TeamMember.create({
+  first_name: "Justin",
+  last_name: "Thompson",
+  email: "@careerbuilder.com",
+  group: pos
+})
+
+TeamMember.create({
+  first_name: "Stephanie",
+  last_name: "Gaspary",
+  email: "@careerbuilder.com",
+  group: pos
+})
+
+TeamMember.create({
+  first_name: "Kristy",
+  last_name: "Cullinane",
+  email: "@careerbuilder.com",
+  group: pos
+})
