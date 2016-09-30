@@ -1,7 +1,7 @@
 %h1
   Hello, Scrum Master!
 
-= form_for @standup, html: { class: 'mailform' } do |f|
+= form_for @standup, html: { class: 'mailform' } do |form|
   .input
     - @groups.each do |group|
       .groups
@@ -11,5 +11,8 @@
               .name
                 = team_member.full_name
               .notes
-                .yesterday Yesterday I did many stories
-                .today Today I will take a nap
+                = fields_for 'standup_team_members' do |standup_team_member_form|
+                  .yesterday
+                    = standup_team_member_form.text_field :yesterday
+                  .today
+                    = standup_team_member_form.text_field :today
