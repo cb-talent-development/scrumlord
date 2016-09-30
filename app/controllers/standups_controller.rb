@@ -1,0 +1,2 @@
+class StandupsController < ApplicationController
+end
