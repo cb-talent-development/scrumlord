@@ -13,10 +13,16 @@
                 .name
                   = team_member.full_name
                 .notes
-                  = fields_for 'standup_team_members' do |standup_team_member_form|
-                    .yesterday.mdl-textfield
-                      = standup_team_member_form.text_field :yesterday, placeholder: 'Yesterday', class: 'mdl-textfield__input'
-                    .today.mdl-textfield
-                      = standup_team_member_form.text_field :today, placeholder: 'Today', class: 'mdl-textfield__input'
+                  = form.fields_for :standup_team_members, StandupTeamMember.new do |stm_form|
+                    .yesterday
+                      = stm_form.hidden_field :team_member_id, value: team_member.id
+                      = stm_form.text_field :yesterday, placeholder: 'Yesterday', class: 'mdl-textfield__input'
+                    .today
+                      = stm_form.text_field :today, placeholder: 'Today', class: 'mdl-textfield__input'
   .button-wrap.group
+    = form.hidden_field :comments, value: "None"
+    = form.hidden_field :meetings, value: "None"
+    = form.hidden_field :date, value: Date.today
+    = form.hidden_field :event_of_the_day, value: true
+    = form.hidden_field :team_id, value: current_team.id
     = form.submit 'Scrupdate It!', class: 'submit-button mdl-button mdl-js-button mdl-button--raised'
