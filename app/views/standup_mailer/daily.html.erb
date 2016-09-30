@@ -1,1 +1,32 @@
-Go away!!
+<% if @standup.event_of_the_day %>
+  <div class="history--section">
+    <h1>Today In History!</h1>
+    <b><%= @event["year"] %></b> - <%= @event["text"] %>
+    <h4>Some Links</h4>
+    <ul>
+      <% @event["links"].each do |link| %>
+        <li><%= link_to link["title"], link["link"] %></li>
+      <% end %>
+    </ul>
+    <br><br>
+  </div>
+<% end %>
+<div class="standup--section">
+  <% @standup.standup_team_members.each do |stm| %>
+    <h3><%= stm.team_member.full_name %></h3>
+    <b><u>Yesterday</u></b>
+    <ul>
+      <li><%= stm.yesterday %></li>
+    </ul>
+    <b><u>Today</u></b>
+    <ul>
+      <li><%= stm.today %></li>
+    </ul>
+    <br>
+  <% end %>
+  <h3>Meetings Today</h3>
+  <%= @standup.meetings %>
+  <br>
+  <h3>Additional Comments</h3>
+  <%= @standup.comments %>
+</div>

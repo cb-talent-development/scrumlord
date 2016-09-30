@@ -4,7 +4,7 @@ class CreateStandups < ActiveRecord::Migration[5.0]
       t.date :date
       t.text :comments
       t.text :meetings
-      t.boolean :event_of_the_day
+      t.boolean :event_of_the_day, default: true
       t.references :team, foreign_key: true
 
       t.timestamps
