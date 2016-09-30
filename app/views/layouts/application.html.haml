@@ -4,12 +4,15 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Scrumlord
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'application'
     %link( rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
     %link(rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css")
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
     %script(defer src="https://code.getmdl.io/1.2.1/material.min.js")
   %body
-    %p.notice= notice
-    %p.alert= alert
+
+
+    %div(aria-live="assertive" aria-atomic="true" aria-relevant="text" class="mdl-snackbar mdl-js-snackbar")
+      %p.notice.mdl-snackbar__text= notice
+      %p.alert.mdl-snackbar__text= alert
     = yield

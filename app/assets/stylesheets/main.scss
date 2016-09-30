@@ -1,5 +1,32 @@
 $border: 1px solid #999;
 
+$color-purple: #3f51b5;
+$color-green: #8BC34A;
+
+body {
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.greeting {
+  background-image:
+    url(https://www.transparenttextures.com/patterns/3px-tile.png), url(https://upload.wikimedia.org/wikipedia/commons/1/1a/ST_vs_Gloucester_-_Match_-_23.JPG);
+  background-size: 5%, cover;
+  background-repeat: repeat, no-repeat;
+  height: 20vh;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding-left: 20px;
+
+  h1 {
+    color: white;
+    margin-bottom: 10px;
+  }
+}
+
 .mailform {
   border: $border;
   display: flex;
@@ -7,17 +34,18 @@ $border: 1px solid #999;
 }
 
 .input {
-  border-right: $border;
   flex-grow: 2;
-}
-
-.devs {
-  border-bottom: $border;
 }
 
 .groups {
   display: flex;
   width: 100%;
+  border-bottom: $border;
+  border-width: 2px;
+
+  &:last-child {
+    border-bottom: 0;
+  }
 }
 
 .team-members {
@@ -37,15 +65,59 @@ $border: 1px solid #999;
 
 .name {
   border-right: $border;
-  min-width: 100px;
+  border-width: 2px;
+  min-width: 175px;
+  background-color: $color-purple;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 12vh;
+  font-size: 18px;
+}
+
+.notes {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.yesterday,
+.today {
+  height: 100%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .yesterday {
-  border-bottom: $border;
+  border-right: $border;
 }
 
-.notes,
-.yesterday,
-.today {
-  width:100%;
+input.mdl-textfield__input {
+  width: 95%;
+  height: 80%;
+  border-radius: 3px;
+  border: $border;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  margin: 20px;
+  float: right;
+  background-color: $color-purple;
+  color: white;
+}
+
+.button-wrap {
+  background-color: $color-green;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
 }
