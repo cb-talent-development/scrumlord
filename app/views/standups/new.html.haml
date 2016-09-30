@@ -14,9 +14,9 @@
                   = team_member.full_name
                 .notes
                   = fields_for 'standup_team_members' do |standup_team_member_form|
-                    .yesterday
+                    .yesterday.mdl-textfield
                       = standup_team_member_form.text_field :yesterday, placeholder: 'Yesterday', class: 'mdl-textfield__input'
-                    .today
+                    .today.mdl-textfield
                       = standup_team_member_form.text_field :today, placeholder: 'Today', class: 'mdl-textfield__input'
   .button-wrap.group
     = form.submit 'Scrupdate It!', class: 'submit-button mdl-button mdl-js-button mdl-button--raised'
