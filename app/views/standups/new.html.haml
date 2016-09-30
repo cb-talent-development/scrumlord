@@ -2,7 +2,7 @@
   %h1
     Welcome, Scrum Master!
 
-= form_for @standup do |form|
+= form_for :standup do |form|
   .mailform
     .input
       - @groups.each do |group|
@@ -13,7 +13,7 @@
                 .name
                   = team_member.full_name
                 .notes
-                  = form.fields_for :standup_team_members, StandupTeamMember.new do |stm_form|
+                  = form.fields_for :standup_team_members, StandupTeamMember.new(team_member: team_member) do |stm_form|
                     .yesterday
                       = stm_form.hidden_field :team_member_id, value: team_member.id
                       = stm_form.text_field :yesterday, placeholder: 'Yesterday', class: 'mdl-textfield__input'

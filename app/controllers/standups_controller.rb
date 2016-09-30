@@ -2,16 +2,16 @@ class StandupsController < AuthenticatedApplicationController
   include EventsHelper
 
   def index
-    @standups = Standup.all
+    @standups = current_team.standups.all
   end
 
   def new
-    @groups = Group.all
-    @standup = Standup.new
+    @groups = current_team.groups.all
+    @standup = current_team.standups.new
   end
 
   def create
-    @standup = Standup.new(standup_params)
+    @standup = current_team.standups.new(standup_params)
 
     if @standup.save
       flash[:success] = "Standup Email Sent!"
