@@ -1,32 +1,107 @@
-<% if @standup.event_of_the_day %>
-  <div class="history--section">
-    <h1>Today In History!</h1>
-    <b><%= @event["year"] %></b> - <%= @event["text"] %>
-    <h4>Some Links</h4>
-    <ul>
-      <% @event["links"].each do |link| %>
-        <li><%= link_to link["title"], link["link"] %></li>
-      <% end %>
-    </ul>
-    <br><br>
-  </div>
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+  <tr style="background-color: #9C27B0">
+    <td style="padding: 5px">
+      <h1 style="font-family: Verdana;">Your Daily Scrupdate</h1>
+    </td>
+    <td></td>
+    <td>
+      <p style="font-family: Verdana; font-weight: bold">
+        <%= DateTime.now %>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding: 1px">&nbsp;</td>
+  </tr>
+  <% if @standup.event_of_the_day %>
+  <tr>
+    <td colspan=3 class="history--section" style="padding: 15px;
+    border-radius: 0;
+    background-color: #EEEEEE;
+    border-top: 1px solid #ededed;
+    border-left: 1px solid #e6e6e6;
+    border-right: 1px solid #e6e6e6;
+    border-bottom: 2px solid #d4d4d4; font-family: Verdana;">
+    <h2 style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #777">Today In History!</h2>
+    <table width="100%">
+      <tr>
+        <td style="width: 60%">
+          <b><%= @event["year"] %></b>
+          <br>
+          <%= @event["text"] %>
+        </td>
+        <td style="padding: 15px">&nbsp;</td>
+        <td>
+          <small>Learn More</small>
+          <ul>
+            <% @event["links"].each do |link| %>
+            <li>
+              <%= link_to link["title"], link["link"] %>
+            </li>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+    </table>
+
+  </td>
+</tr>
 <% end %>
-<div class="standup--section">
+<tr>
+  <td style="padding: 5px">&nbsp;</td>
+</tr>
+<tr>
+  <td colspan=3 class="standup--section" style="padding: 15px;
+  border-radius: 0;
+  background-color: #FFF;
+  border-top: 1px solid #ededed;
+  border-left: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
+  border-bottom: 2px solid #d4d4d4; font-family: Verdana;">
+  <h2 style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #777">Standup Notes:</h2>
   <% @standup.standup_team_members.each do |stm| %>
-    <h3><%= stm.team_member.full_name %></h3>
-    <b><u>Yesterday</u></b>
-    <ul>
-      <li><%= stm.yesterday %></li>
-    </ul>
-    <b><u>Today</u></b>
-    <ul>
-      <li><%= stm.today %></li>
-    </ul>
-    <br>
+
+  <h3>
+    <img src="#{stm.team_member.gravatar_url}" alt="#{stm.team_member.full_name}'s Gravatar" width=70 height=70/>
+    <%= stm.team_member.full_name %>
+  </h3>
+  <b><u>Yesterday</u></b>
+  <ul>
+    <li>
+      <%= stm.yesterday %>
+    </li>
+  </ul>
+  <b><u>Today</u></b>
+  <ul>
+    <li>
+      <%= stm.today %>
+    </li>
+  </ul>
   <% end %>
-  <h3>Meetings Today</h3>
+</td>
+</tr>
+<tr>
+  <td style="padding: 5px">&nbsp;</td>
+</tr>
+<tr>
+  <td style="background-color: #EEEEEE; padding: 15px;
+  border-radius: 0;
+  border-top: 1px solid #ededed;
+  border-left: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
+  border-bottom: 2px solid #d4d4d4; font-family: Verdana;">
+  <h3 style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #777">Meetings Today</h3>
   <%= @standup.meetings %>
-  <br>
-  <h3>Additional Comments</h3>
-  <%= @standup.comments %>
-</div>
+</td>
+<td >&nbsp;</td>
+<td style="background-color: #EEEEEE; padding: 15px;
+border-radius: 0;
+border-top: 1px solid #ededed;
+border-left: 1px solid #e6e6e6;
+border-right: 1px solid #e6e6e6;
+border-bottom: 2px solid #d4d4d4; font-family: Verdana;">
+<h3 style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #777">Additional Comments</h3>
+<%= @standup.comments %>
+</td>
+</tr>
+</table>
