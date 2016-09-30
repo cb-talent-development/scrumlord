@@ -1,0 +1,51 @@
+$border: 1px solid #999;
+
+.mailform {
+  border: $border;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.input {
+  border-right: $border;
+  flex-grow: 2;
+}
+
+.devs {
+  border-bottom: $border;
+}
+
+.groups {
+  display: flex;
+  width: 100%;
+}
+
+.team-members {
+  width: 100%;
+}
+
+.team-member {
+  display: flex;
+  border-bottom: $border;
+  width: 100%;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+
+.name {
+  border-right: $border;
+  min-width: 100px;
+}
+
+.yesterday {
+  border-bottom: $border;
+}
+
+.notes,
+.yesterday,
+.today {
+  width:100%;
+}
