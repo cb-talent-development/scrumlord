@@ -8,7 +8,8 @@
         .team-members
           - group.team_members.each do |team_member|
             .team-member
-              .name team_member.fullname
+              .name
+                = team_member.full_name
               .notes
                 .yesterday Yesterday I did many stories
                 .today Today I will take a nap
